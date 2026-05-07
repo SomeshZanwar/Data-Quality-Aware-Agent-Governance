@@ -14,7 +14,7 @@ agt-env/
 
 # Outputs
 outputs/*.json
-outputs/*.txt
+!outputs/demo_output.txt
 !outputs/.gitkeep
 
 # Environment files

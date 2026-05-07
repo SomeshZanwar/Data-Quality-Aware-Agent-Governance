@@ -1,0 +1,68 @@
+================================================================================
+DATA QUALITY-AWARE AGENT GOVERNANCE DEMO
+================================================================================
+--------------------------------------------------------------------------------
+Request ID: request-001
+Agent: analyst-agent-01
+Role: analyst
+Action: database_query
+Tool: sql_query
+Dataset: sales_metrics
+Status: ALLOWED
+Reason: Agent authorized and dataset passed quality checks.
+Quality Score: 0.94
+Data Owner: analytics-team
+--------------------------------------------------------------------------------
+Request ID: request-002
+Agent: analyst-agent-01
+Role: analyst
+Action: database_query
+Tool: sql_query
+Dataset: user_events
+Status: BLOCKED by data_quality
+Reason: Dataset failed quality checks.
+Quality Score: 0.72
+Data Owner: data-engineering
+Data Issues:
+  - stale_data: last validated 26.0h ago; threshold is 12h
+  - low_quality_score: 0.72 below minimum 0.85
+  - failed_tests: not_null_user_id, accepted_values_event_type
+--------------------------------------------------------------------------------
+Request ID: request-003
+Agent: analyst-agent-01
+Role: analyst
+Action: database_write
+Tool: write_db
+Dataset: sales_metrics
+Status: BLOCKED by agent_policy
+Reason: policy_violation: Block analyst database writes
+--------------------------------------------------------------------------------
+Request ID: request-004
+Agent: pipeline-agent-01
+Role: pipeline
+Action: database_write
+Tool: write_db
+Dataset: clean_pipeline_table
+Status: ALLOWED
+Reason: Agent authorized and dataset passed quality checks.
+Quality Score: 0.98
+Data Owner: platform-team
+--------------------------------------------------------------------------------
+Request ID: request-005
+Agent: unknown-agent-99
+Role: None
+Action: database_query
+Tool: sql_query
+Dataset: sales_metrics
+Status: BLOCKED by identity
+Reason: Agent 'unknown-agent-99' is not registered.
+================================================================================
+SUMMARY
+================================================================================
+Total decisions: 5
+Allowed: 2
+Blocked: 3
+Blocked by identity: 1
+Blocked by agent policy: 1
+Blocked by data quality: 1
+Audit report exported to: outputs/governance_report.json
