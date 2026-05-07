@@ -156,7 +156,7 @@ The final decision is not based only on whether the agent is allowed. It also de
 
 That matters for analytics agents, BI copilots, data pipeline agents, and any system where AI agents interact with business data.
 
-## Future Improvements
+## Future Improvements 
 
 - Connect the data quality registry to real dbt test results
 - Add lineage-aware dataset checks
