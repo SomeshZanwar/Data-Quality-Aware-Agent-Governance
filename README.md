@@ -1,6 +1,6 @@
 # Data Quality-Aware Agent Governance
 
-This project extends my [AI Data Governance Platform](https://github.com/SomeshZanwar) by adding an agent-governance layer. Instead of only checking whether data is reliable, this prototype checks whether an AI agent is authorized to use that data *and* whether the data is trustworthy at the time of access.
+This project extends my [AI Data Governance Platform](https://github.com/SomeshZanwar/ai-data-governance-platform) by adding an agent-governance layer. Instead of only checking whether data is reliable, this prototype checks whether an AI agent is authorized to use that data *and* whether the data is trustworthy at the time of access.
 
 ---
 
