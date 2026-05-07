@@ -1,3 +1,4 @@
 agent-os-kernel==3.4.0
 agentmesh-platform==3.4.0
 agent-governance-toolkit==3.4.0
+pytest==9.0.3
