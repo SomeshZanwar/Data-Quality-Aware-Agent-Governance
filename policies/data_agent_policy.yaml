@@ -1,0 +1,53 @@
+apiVersion: governance.toolkit/v1
+version: "1.0"
+name: data-quality-aware-agent-policy
+description: >
+  Example policy for governing data and analytics agents.
+  Analyst agents can query data but cannot write to databases.
+  Dataset trustworthiness is checked separately in the data quality layer.
+
+default_action: deny
+
+agents:
+  analyst-agent-01:
+    role: analyst
+    allowed_actions:
+      - database_query
+      - file_read
+    denied_actions:
+      - database_write
+
+  pipeline-agent-01:
+    role: pipeline
+    allowed_actions:
+      - database_query
+      - file_read
+      - database_write
+
+rules:
+  - id: block-analyst-database-write
+    name: Block analyst database writes
+    description: Analyst agents can query data, but cannot write to databases.
+    condition:
+      role: analyst
+      action: database_write
+    action: deny
+    priority: 100
+
+  - id: allow-analyst-database-query
+    name: Allow analyst database queries
+    description: Analyst agents can query approved datasets if data quality checks pass.
+    condition:
+      role: analyst
+      action: database_query
+    action: allow
+    priority: 50
+
+  - id: allow-pipeline-database-write
+    name: Allow pipeline database writes
+    description: Pipeline agents can write to governed pipeline tables if data quality checks pass.
+    condition:
+      role: pipeline
+      action: database_write
+    action: allow
+    priority: 50
