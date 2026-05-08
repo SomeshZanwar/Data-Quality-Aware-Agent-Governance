@@ -89,7 +89,8 @@ This example would demonstrate how AGT policy checks can be composed with extern
 6. Submit an example pull request only if maintainers indicate that the pattern fits the project direction.
 
 GitHub Discussion: https://github.com/microsoft/agent-governance-toolkit/discussions/1795
-Status: Awaiting maintainer feedback — posted May 2025
+
+Status: PR #1818 merged by @imran-siddique into microsoft:main — May 2026
 
 ## Draft Discussion Title
 
