@@ -1,24 +1,52 @@
 # Open-Source Contribution Plan
 
-This document outlines a planned contribution to Microsoft's Agent Governance Toolkit based on this portfolio project.
+This document outlines the contribution made to Microsoft's Agent Governance Toolkit based on this portfolio project.
+
+---
 
 ## Goal
 
 Propose a small example showing how agent authorization can be combined with external data quality signals before allowing an agent action.
 
-## Proposed Contribution Type
+---
 
-Example contribution, not a core package change.
+## Contribution Status
 
-Proposed location in the upstream repository:
+**GitHub Discussion:** [microsoft/agent-governance-toolkit#1795](https://github.com/microsoft/agent-governance-toolkit/discussions/1795)
 
-```text
+**Status:** PR #1818 merged by @imran-siddique into microsoft:main — May 2026
+
+**Merged:** https://github.com/microsoft/agent-governance-toolkit/pull/1818
+
+**Listed in:** https://github.com/microsoft/agent-governance-toolkit/blob/main/docs/ADOPTERS.md
+
+---
+
+## Contribution Sequence
+
+1. Finish and polish this portfolio project.
+2. Star the Microsoft Agent Governance Toolkit repository.
+3. Review existing issues and discussions.
+4. Engage with one or two relevant discussions if possible.
+5. Open a discussion proposing the data-quality-aware governance example.
+6. Submit ADOPTERS.md pull request — PR #1818 merged by @imran-siddique.
+7. Next: Submit example contribution PR under `examples/data-quality-aware-governance/` (pending positive response to Discussion #1795)
+
+---
+
+## Proposed Example Contribution
+
+**Type:** Example contribution, not a core package change.
+
+**Proposed location in the upstream repository:**
+
+```
 examples/data-quality-aware-governance/
 ```
 
-## Proposed Files
+**Proposed Files:**
 
-```text
+```
 examples/data-quality-aware-governance/
   README.md
   data_quality_policy_example.py
@@ -26,44 +54,50 @@ examples/data-quality-aware-governance/
   expected_output.txt
 ```
 
+---
+
 ## Pattern Demonstrated
 
-The example would show a two-layer governance decision:
+The example shows a two-layer governance decision:
 
-1. Agent policy evaluation - Is the agent authorized to perform the action?
-2. Data quality validation - Is the target dataset fresh, validated, and trustworthy?
+1. **Agent policy evaluation** : Is the agent authorized to perform the action?
+2. **Data quality validation** : Is the target dataset fresh, validated, and trustworthy?
 
 Final decision:
 
-```text
+```
 allow only if both checks pass
 ```
 
+---
+
 ## Example Scenario
 
-```text
-Agent: analyst-agent-01
-Action: database_query
+```
+Agent  : analyst-agent-01
+Action : database_query
 Dataset: user_events
 ```
 
 Agent policy result:
 
-```text
+```
 allowed
 ```
 
 Data quality result:
 
-```text
-blocked because dataset is stale, has a low quality score, and has failed validation tests
+```
+blocked — dataset is stale, has a low quality score, and has failed validation tests
 ```
 
 Final decision:
 
-```text
+```
 blocked by data_quality
 ```
+
+---
 
 ## Why This Could Help the Upstream Project
 
@@ -79,24 +113,25 @@ This example would demonstrate how AGT policy checks can be composed with extern
 - dataset ownership
 - audit logging
 
-## Contribution Sequence
+---
 
-1. Finish and polish this portfolio project.
-2. Star the Microsoft Agent Governance Toolkit repository.
-3. Review existing issues and discussions.
-4. Engage with one or two relevant discussions if possible.
-5. Open a discussion proposing the data-quality-aware governance example.
-6. Submit an example pull request only if maintainers indicate that the pattern fits the project direction.
+## Files Already Built
 
-GitHub Discussion: https://github.com/microsoft/agent-governance-toolkit/discussions/1795
+The following files are ready for the example PR once maintainers confirm the pattern fits the project direction:
 
-Status: PR #1818 merged by @imran-siddique into microsoft:main — May 2026
+- `data_quality_policy_example.py` : self-contained Python file using real AGT objects (PolicyEngine, PolicyRule, AgentContext, ExecutionRequest)
+- `sample_policy.yaml` : YAML policy definition for the scenario
+- `expected_output.txt` : reproducible demo output
+
+---
 
 ## Draft Discussion Title
 
-```text
-Example proposal: Data quality-aware agent policy evaluation
 ```
+Pattern: combining AGT policy evaluation with external data quality signals
+```
+
+---
 
 ## Draft Discussion Body
 
