@@ -4,6 +4,13 @@ This project extends my [AI Data Governance Platform](https://github.com/SomeshZ
 
 ---
 
+## Live Demo
+**[→ Open Agent Access Governance Simulator](https://agent-governance-simulator.streamlit.app/)**
+
+No setup needed. Choose an agent, action, and dataset to see whether access is allowed or blocked.
+
+---
+
 ## The Problem
 
 An analyst agent has permission to query a sales dataset. The policy engine clears it — registered agent, valid action, nothing blocked.
